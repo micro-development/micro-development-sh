@@ -4,7 +4,7 @@
 
 
 ```bash
-git clone https://github.com/ittlr/micro-development-sh.git
+git clone https://github.com/micro-development/micro-development-sh.git
 cd micro-development-sh
 cp it-md.sh /usr/bin/it-md # mac 会提示没有权限，前面加 sudo 即可
 ```
