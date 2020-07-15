@@ -23,14 +23,14 @@ cp it-md.sh /usr/bin/it-md # mac 会提示没有权限，前面加 sudo 即可
 
 ###  配置文件
 
-你的项目中会有个 `shell` 配置文件：`config.sh` , 格式内容如下：
+你的项目中会有个 `shell` 配置文件：`config.sh` , 格式内容,示例：
 
 ```bash
 all_module=("common" "basic" "devops" "write")
 
-git_ssh_url='root@47.93.119.76'
+git_ssh_url='git@github.com'
 git_namespace='micro-development-demo'
-git_repo_prefix='it-admin-'
+git_repo_prefix='vue-admin-'
 clone_target_path='src/base-resource/'
 ```
 
@@ -62,7 +62,7 @@ clone_target_path='src/base-resource/'
 安装全部仓库或指定的仓库。
 
 ```bash
-it-md install
+it-md install [option]
 ```
 
 不加 option ，安装全部，加了，安装指定仓库。
@@ -70,6 +70,13 @@ it-md install
 option 仓库名，如果传了这个参数，则必须存在 all_module 中。
 
 内部执行 `git clone` 。
+
+示例
+
+```bash
+it-md install # 安装全部
+it-md install common # 安装 common
+```
 
 ### update
 
@@ -86,6 +93,14 @@ option 仓库名，如果传了这个参数，则必须存在 all_module 中。
 
 内部执行 `git pull` 。
 
+
+示例
+
+```bash
+it-md update # 更新全部
+it-md update common # 更新 common
+```
+
 ### remove
 
 移除指定的仓库。
@@ -98,6 +113,13 @@ option 仓库名，必传，必须存在 all_module 中。
 
 内部仅删除依赖的仓库文件夹，不影响主仓库。（依赖的仓库如果变更时，需谨慎操作）
 
+示例
+
+```bash
+it-md remove common # 移除 common
+```
+
+
 ### commit
 
 提交指定仓库的变更。
@@ -106,9 +128,18 @@ option 仓库名，必传，必须存在 all_module 中。
 it-md commit repoName commitContent
 ```
 
+- repoName 必须，仓库名。
+- commitContent 必须，提交日志信息。
+
 内部对 `repoName`  执行  `git add . && git commit -am commitContent && git pull && git push` 。
 
 **注意：**  commitContent 需要加引号。
+
+示例
+
+```bash
+it-md commit common '修复xxxbug' # 提交 common 仓库，日志信息为：修复xxxbug
+```
 
 ### clear
 
