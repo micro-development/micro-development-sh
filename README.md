@@ -1,15 +1,22 @@
 # MicroDevelopmentCli Tool By sh
 
 
+## 注意注意注意
+
+此脚本属于使用 `shell` 语言编写，所以安装需要一些条件。
+
 ## 安装
 
+**如果是 Linux or Mac 系统，直接按照下面操作即可。**
+
+**如果是 Windows 系统，不可以直接在系统自带 cmd 终端，不支持，不支持，不支持。
+建议安装 [git bash](https://gitforwindows.org/) , 安装成功之后，在 `git bash` 终端中执行下面命令即可。**
 
 ```bash
 git clone https://github.com/micro-development/micro-development-sh.git
 cd micro-development-sh
 cp it-md.sh /usr/bin/it-md # mac 会提示没有权限，前面加 sudo 即可
 ```
-
 
 ## 测试
 
